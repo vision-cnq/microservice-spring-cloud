@@ -1,0 +1,16 @@
+security:
+  basic:
+    enabled: true
+  user:
+    name: kevin
+    password: 123456
+server:
+  port: 8761  #指定服务端口
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    register-with-eureka: false #是否将eureka自身作为应用注册到eureka注册中心
+    fetch-registry: false  #为true时，可以启动，但报异常caonot execute request on any know server
+    service-url:
+      defaultZone: http://kevin:123456@localhost:8761/eureka

@@ -1,0 +1,20 @@
+server:
+  port: 8050  #指定服务端口
+eureka:
+  client:
+    service-url:
+      defaultZone: http://kevin:123456@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+spring:
+  application:
+    name: microservice-file-upload-zuul
+  http:
+    multipart:
+      max-file-size: 2000Mb   #默认1M
+      max-request-size: 2500Mb  #默认10M
+logging:
+  level:
+    root: INFO
+    com.kevin.cloud: debug
+    com.netflix: debug

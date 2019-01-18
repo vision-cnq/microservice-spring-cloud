@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: microservice-gateway-zuul
+server:
+  port: 8040  #指定服务端口
+eureka:
+  client:
+    service-url:
+      defaultZone: http://kevin:123456@localhost:8761/eureka
+  #注册IP
+  instance:
+    prefer-ip-address: true
+zuul:
+  #该配置是粗粒度控制让zuul忽略该服务，无法通过zuul去访问，*是忽略所有的服务，也可以配置单个或多个服务的名称（多个用,号分隔）
+  #ignored-services: microservice-consumer-movie-ribbon-with-hystrix
+  routes:
+    #该配置让路由可以将服务的名称自定义,访问的时候可以通过自定义的名称去访问
+    #microservice-provider-user: /user/**
+    microservice: #该参数只要是唯一就行
+      #访问的路径
+      path: /user-path/**
+      #让zuul可以访问注册到Eureka的服务id
+      serviceId: microservice-provider-user

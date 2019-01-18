@@ -1,0 +1,16 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: microservice-consumer-movie-ribbon
+#做负载均衡的时候，不需要这个动态配置的地址
+#user:
+  #userServicePath: http://localhost:7900/simple
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://kevin:123456@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true

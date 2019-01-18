@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: microservice-gateway-zuul
+server:
+  port: 8040  #指定服务端口
+eureka:
+  client:
+    service-url:
+      defaultZone: http://kevin:123456@localhost:8761/eureka
+  #注册IP
+  instance:
+    prefer-ip-address: true
+zuul:
+  #与strip-prefix一起使用是，prefix则是若代理微服务的前缀
+  prefix: /simple
+  #剥离前缀
+  strip-prefix: false
+#打印日志
+logging:
+  level:
+    com.netflix: debug

@@ -1,0 +1,18 @@
+server:
+  port: 8011
+  #context-path: /ribbon
+spring:
+  application:
+    name: microservice-consumer-movie-ribbon-with-hystrix
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://kevin:123456@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    #home-page-url-path: /ribbon
+#配置超时时间（默认1000ms，单位：ms），使用default，在调用方配置，被调用方的所有方法的超时时间都是该值
+#优先级低于指定配置，hystrix.command.findById.execution.isolation.thread.timeoutInMilliseconds: 5000 指定findById的超时时间
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000

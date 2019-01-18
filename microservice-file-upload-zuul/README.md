@@ -1,0 +1,2 @@
+eureka服务发现组件。
+该项目是eureka Server，可以将其他服务注册到eureka Server，并通过RESTful调用

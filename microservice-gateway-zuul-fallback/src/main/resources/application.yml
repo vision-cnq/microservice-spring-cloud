@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: microservice-gateway-zuul-fallback
+server:
+  port: 8041  #指定服务端口
+eureka:
+  client:
+    service-url:
+      defaultZone: http://kevin:123456@localhost:8761/eureka
+  #注册IP
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+#打印日志
+logging:
+  level:
+    com.netflix: debug
+# 第一种方式：将 hystrix 的超时时间设置成 5000 毫秒
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000

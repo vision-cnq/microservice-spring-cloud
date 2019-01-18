@@ -1,0 +1,16 @@
+server:
+  port: 7911
+user:
+  userServicePath: http://localhost:7900/simple/
+spring:
+  application:
+    name: microservice-consumer-movie
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://kevin:123456@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+

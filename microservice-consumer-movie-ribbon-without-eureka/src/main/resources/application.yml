@@ -1,0 +1,23 @@
+server:
+  port: 8012
+spring:
+  application:
+    name: microservice-consumer-movie-ribbon-without-eureka
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://kevin:123456@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+ribbon: #使用该配置让Riboon可以跟eureka分离使用
+  eureka:
+    enabled: false
+microservice-provider-user:
+  ribbon: #配置Ribbon能访问的为服务节点，多个节点使用逗号隔开
+    listOfServers: localhost:7900, localhost:7902
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    #配置负载均衡的规则：响应时间加权的规则
+    #NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
+

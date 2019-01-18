@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: microservice-gateway-zuul
+server:
+  port: 8040  #指定服务端口
+eureka:
+  client:
+    service-url:
+      defaultZone: http://kevin:123456@localhost:8761/eureka
+  #注册IP
+  instance:
+    prefer-ip-address: true
+zuul:
+  routes:
+    microservice: #该参数只要是唯一就行
+      #访问的路径
+      path: /user-url/**
+      #通过url让zuul可以访问注册到Eureka的服务id（需要该服务的ip地址）,但是使用url配置则无法使用Hystrix和Ribbon的功能
+      url: http://127.0.0.1:7900/
+      #通过serviceId让zuul可以访问注册到Eureka的服务id（需要该服务的服务名称）
+      #serviceId: microservice-provider-user
