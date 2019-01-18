@@ -3,35 +3,22 @@
 #### 项目介绍
 SpringCloud微服务中Eureka、ribbon、feign、zuul、hystrix、sidecar等的测试
 
-#### 软件架构
-软件架构说明
 
-
-#### 安装教程
-
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 使用说明
-
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 参与贡献
-
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
-
-
-#### 码云特技
-
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+1.Eureka服务注册中心：端口（8761）http://localhost:8761/
+2.User服务提供者：端口（7900）http://localhost:7900/simple/1（microservice-provider-user）
+3.User服务提供者：端口（7901）http://localhost:7901/simple/1（microservice-provider-user）
+4.User服务提供者：端口（7902）http://localhost:7902/simple/1（microservice-provider-user）
+5.User服务提供者：端口（7903）http://localhost:7903/simple/1（microservice-provider-user2）
+6.User服务消费者：端口（7911）http://localhost:7911/movie/1（microservice-consumer-movie）
+7.Ribbon负载均衡代码自定义：端口（8010）http://localhost:8010/movie/1（microservice-consumer-movie-ribbon）
+8.Ribbon负载均衡配置文件设置：端口（8011）http://localhost:8011/movie/1（microservice-consumer-movie-ribbon-properties-customizing）
+9.Ribbon脱离Eureka：端口（8012）http://localhost:8012/movie/1（microservice-consumer-movie-ribbon-without-eureka）
+10.Feign声明式服务调用：端口（8100）http://localhost:8100/movie/1（microservice-consumer-movie-feign）
+11.Feign声明式服务调用：端口（8101）http://localhost:8101/movie/1（microservice-consumer-movie-feign-cutomizing）
+12.Feign禁用和启动Hystrix：端口（8102）http://localhost:8102/movie/1（microservice-consumer-movie-feign-customizing-without-hystrix）
+13.Feign禁用和启动Hystrix使用Factory：端口（8103）http://localhost:8103/movie/1（microservice-consumer-movie-feign-with-hystrix-factory）
+14.Feign和Hystrix：端口（8104）http://localhost:8104/movie/1（microservice-consumer-movie-feign-with-hystrix-factory）
+15.Hystrix监控Dashboard：端口（8030）http://localhost:8030/hystrix（microservice-consumer-movie-feign-with-hystrix-factory）
+16.zuul网关：端口（8040）http://localhost:8040/microservice-provider-user/simple/1（microservice-gateway-zuul）
+17.zuul网关的回退：端口（8041）http://localhost:8041/microservice-provider-user/simple/1（microservice-gateway-zuul-fallback）
+18.sidecar异构微服务+zuul：端口（8070）http://localhost:8040/microservice-sidecar（microservice-sidecar）
